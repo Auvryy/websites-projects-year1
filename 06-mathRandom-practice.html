@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Roll a dice
+    </title>
+    <style>
+      body p {
+        color: white;
+        font-family: arial;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .head {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      .roll-button {
+        background-color: rgb(94, 128, 251);
+        padding: 15px 40px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 5px 5px 20px rgba(255,255,255,0.15);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      .roll-button:hover {
+        background-color: rgb(67, 92, 184);
+      }
+
+      .roll-button:active {
+        opacity: 0.7;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+      }
+
+      #result {
+        font-size: 29px;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(13, 9, 32);">
+    <div class="container">
+      <div class="heading">
+        <div>
+          <p class="head">Dice roller</p>
+        </div>
+        <div>
+          <p>This program is a random dice roller used to get random outcome using HTML, CSS, and JavaScript.</p>
+        </div>
+      </div>
+      <div>
+        <button class="roll-button" onclick="const randNum = Math.floor(Math.random() *6) + 1;
+        let outcome = ''
+        console.log(randNum);
+        if (randNum === 1) {
+          outcome = 'One';
+        }
+        else if (randNum === 2) {
+          outcome = 'Two';
+        }
+        else if (randNum === 3) {
+          outcome = 'Three';
+        }
+        else if (randNum === 4) {
+          outcome = 'Four';
+        }
+        else if (randNum === 5) {
+          outcome = 'Five';
+        }
+        else if (randNum === 6) {
+          outcome = 'Six';
+        }
+       
+        document.getElementById = 'result';
+        result.innerHTML = outcome;
+
+        ">
+          Roll
+        </button>
+      </div>
+      <div class="footer">
+        <p>You rolled a:</p>
+        <p id="result"></p>
+      </div>
+    </div>
+  </body>
+</html>
