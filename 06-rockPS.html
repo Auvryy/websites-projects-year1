@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      rock, paper, scissors
+    </title>
+    <style>
+      body {
+        background-color: rgb(42, 42, 42);
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .reset-container {
+        margin-top: 20px;
+        margin-left: 10px;
+      }
+      .buttons-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .buttons-box {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .buttons {
+        padding: 10px 20px;
+        background-color: rgb(97, 109, 239);
+        color: white;
+        font-weight: bold;
+        border: 2px solid white;
+        box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.15s, color 0.15s, border 0.15s;
+      }
+
+      .buttons:hover {
+        color: rgb(97, 109, 239);
+        background-color: white; 
+        border-color: black; 
+      }
+
+      .buttons:active {
+        opacity: 0.7;
+      }
+
+      .reset-button {
+        padding: 10px 10px;
+        border: 2px solid white;
+        border-radius: 3px;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.15);
+        transition: background-color 0.15s, color 0.15s, border 0.15s;
+      }
+
+      .reset-button:hover {
+        color: red;
+        background-color: white; 
+        border-color: black; 
+      }
+
+      .reset-button:active {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <head>
+    <main>
+      <h1 style="margin-left: 10px; color: white; font-family: arial; ">
+        Rock Paper Scissors
+      </h1>
+      <div class="buttons-container">
+        <div class="buttons-box">
+          <button class="buttons" onclick="const randomNumber1 = Math.random();
+          
+          if (randomNumber1 >= 0 && randomNumber1 < 1 / 3) {
+            console.log('It is a draw');
+            draw += 1;
+            console.log(draw);
+          }
+          else if (randomNumber1 >= 1 / 3 && randomNumber1 < 2 / 3) {
+            console.log('You lose!');
+            losses += 1;
+            console.log(losses);
+          }
+          else if (randomNumber1 >= 2 / 3 && randomNumber1 < 1) {
+            console.log('You win!');
+            win += 1;
+            console.log(win);
+          
+          }
+          
+          ">
+            Rock
+          </button>
+        </div>
+        <div class="buttons-box"> 
+          <button class="buttons"  onclick="const randomNumber2 = Math.random(); 
+          if (randomNumber2 >= 0 && randomNumber2 < 1 / 3) {
+            console.log('You win!');
+            win += 1;
+            console.log(win);
+          }
+          else if (randomNumber2 >= 1 / 3 && randomNumber2 < 2 / 3) {
+            console.log('It is a draw');
+            draw += 1;
+            console.log(draw);
+          }
+          else if (randomNumber2 >= 2 / 3 && randomNumber2 < 1) {
+            console.log('You lose!');
+            losses += 1;
+            console.log(losses);
+          
+          }
+          ">
+            Paper
+          </button>
+        </div>
+        <div class="buttons-box">
+          <button class="buttons" onclick="const randomNumber3 = Math.random();
+          
+          if (randomNumber3 >= 0 && randomNumber3 < 1 / 3) {
+            console.log('You lose!');
+            losses += 1;
+            console.log(losses);
+          }
+          else if (randomNumber3 >= 1 / 3 && randomNumber3 < 2 / 3) {
+            console.log('You win!');
+            win += 1;
+            console.log(win);
+          }
+          else if (randomNumber3 >= 2 / 3 && randomNumber3 < 1) {
+            console.log('It is a draw');
+            draw += 1;
+            console.log(draw);
+          
+          }
+          ">
+            Scissors
+          </button>
+        </div>
+      </div>
+      <div class="reset-container">
+        <button class="reset-button" onclick="win = losses = draw = 0;">
+          Reset score
+        </button>
+      </div>
+      
+    </main>
+    <script>
+      let win = 0;
+      let losses = 0;
+      let draw = 0;
+    </script>
+
+  </head>
+</html>

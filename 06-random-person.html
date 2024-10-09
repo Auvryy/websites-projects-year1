@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random picker</title>
+    <style>
+      body {
+        background-color: rgb(165, 213, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      button {
+        padding: 20px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 2px;
+        background-color: rgb(160, 172, 255);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      button:hover {
+        background-color: rgb(138, 147, 208);;
+      }
+
+      button:active {
+        opacity: 0.7;
+      }
+
+      h1 {
+        color: rgb(0, 0, 0);
+        transition: all 1s;
+      }
+    </style>
+
+
+  </head>
+  <body>
+    <p>Anong oras natutulog si sid</p>
+    <button onclick="const randomDigit = Math.random() * 7;
+    
+    let outcome = '';
+    if (randomDigit >=0 && randomDigit < 1) {
+      outcome = '11pm';
+    }
+    else if (randomDigit >= 1 && randomDigit < 2 ) {
+      outcome = '12am';
+    }
+    else if (randomDigit >= 2 && randomDigit < 3) {
+      outcome = '1am';
+    }
+    else if (randomDigit >=3 && randomDigit < 4) {
+      outcome = '2am';
+    }
+    else if (randomDigit >=4 && randomDigit < 5) {
+      outcome = '3am';
+    }
+    else if (randomDigit >=5 && randomDigit < 6) {
+      outcome = '4am';
+    }
+    else if (randomDigit >= 6) {
+      outcome = '5am';
+    }
+
+    document.getElementById('result');
+    result.innerHTML = 'Natutulog si Sid ng: ' + outcome;
+    ">
+      Guess!
+    </button>
+    <h1 id="result"></h1>
+    
+  </body>
+</html>
