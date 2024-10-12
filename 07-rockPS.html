@@ -113,87 +113,19 @@
       </h1>
       <div class="buttons-container">
         <div class="buttons-box">
-          <button class="buttons" onclick=" pickComputerMove();
-          if (computerMove === 'Rock') {
-            result = 'Tie';
-            draw++;
-          }
-          else if (computerMove === 'Paper') {
-            result = 'Lose';
-            losses++;
-          }
-          else if (computerMove === 'Scissors') {
-            result = 'Win';
-            win++;
-          }
-          document.getElementById('Mywin');
-          document.getElementById('Myloss');
-          document.getElementById('Mydraw');
-          document.getElementById('outcome');
-          document.getElementById('computerMove1');
-          computerMove1.innerHTML = `Computer Picked: ${computerMove}`;
-          outcome.innerHTML = 'Result: ' + result + ' ';
-          Mywin.innerHTML = 'win: ' + win + ' ';
-          Myloss.innerHTML = 'loss: ' + losses + ' ';
-          Mydraw.innerHTML = 'draw: ' + draw + ' ';
+          <button class="buttons" onclick="playGame('rock');
           ">
             Rock
           </button>
         </div>
         <div class="buttons-box"> 
-          <button class="buttons"  onclick="pickComputerMove();
-          if (computerMove === 'Rock') {
-            result = 'Win';
-            win++;
-          }
-          else if (computerMove === 'Paper') {
-            result = 'Tie';
-            draw++;
-          }
-          else if (computerMove === 'Scissors') {
-            result = 'Lose';
-            losses++;
-          }
-          document.getElementById('Mywin');
-          document.getElementById('Myloss');
-          document.getElementById('Mydraw');
-          document.getElementById('outcome');
-          document.getElementById('computerMove1');
-          computerMove1.innerHTML = `Computer Picked: ${computerMove}`;
-          outcome.innerHTML = 'Result: ' + result + ' ' ;
-          Mywin.innerHTML = 'win: ' + win + ' ';
-          Myloss.innerHTML = 'loss: ' + losses + ' ';
-          Mydraw.innerHTML = 'draw: ' + draw + ' ';
+          <button class="buttons"  onclick="playGame('paper');
           ">
             Paper
           </button>
         </div>
         <div class="buttons-box">
-          <button class="buttons" onclick="pickComputerMove();
-          if (computerMove === 'Rock') {
-            result = 'Lose';
-            losses++;
-          }
-          else if (computerMove === 'Paper') {
-            result = 'Win';
-            win++;
-          }
-          else if (computerMove === 'Scissors') {
-            result = 'Tie';
-            draw++;
-          }
-          document.getElementById('Mywin');
-          document.getElementById('Myloss');
-          document.getElementById('Mydraw');
-          document.getElementById('outcome');
-          document.getElementById('computerMove1');
-          computerMove1.innerHTML = `Computer Picked: ${computerMove}`;
-          outcome.innerHTML = 'Result: ' + result + ' ';
-          Mywin.innerHTML = 'win: ' + win + ' ';
-          Myloss.innerHTML = 'loss: ' + losses + ' ';
-          Mydraw.innerHTML = 'draw: ' + draw + ' ';
-          
-
+          <button class="buttons" onclick="playGame('scissors');
           ">
             Scissors
           </button>
@@ -201,14 +133,7 @@
       </div>
       <div class="reset-container">
         <button class="reset-button" onclick="win = losses = draw = 0;
-        document.getElementById('Mywin');
-          document.getElementById('Myloss');
-          document.getElementById('Mydraw');
-          document.getElementById('outcome');
-          outcome.innerHTML = 'Result: ' + result + ' ';
-          Mywin.innerHTML = 'win: ' + win + ' ';
-          Myloss.innerHTML = 'loss: ' + losses + ' ';
-          Mydraw.innerHTML = 'draw: ' + draw + ' ';
+          resetResult();
         ">
           Reset score
         </button>
@@ -225,7 +150,6 @@
             <p id="Mydraw"> </p>
           </div>
         </div>
-        
       </div>
       
     </main>
@@ -233,21 +157,95 @@
       let win = 0;
       let losses = 0;
       let draw = 0;
-      let computerMove = '';
       let result = '';
     
       function pickComputerMove() {
         const randomNumber = Math.random();
+        let randomComputerMove = '';
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          randomComputerMove = 'Rock';
+        }
+        else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          randomComputerMove = 'Paper';
+        }
+        else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          randomComputerMove = 'Scissors';
+        }
+
+        return randomComputerMove;
           
-          if (randomNumber >= 0 && randomNumber < 1 / 3) {
-            computerMove = 'Rock';
+      }
+
+      function playGame(playerMove) {
+        computerMove = pickComputerMove();
+        if (playerMove === 'scissors') {
+          if (computerMove === 'Rock') {
+            result = 'Lose';
+            losses++;
           }
-          else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-            computerMove = 'Paper';
+          else if (computerMove === 'Paper') {
+            result = 'Win';
+            win++;
           }
-          else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-            computerMove = 'Scissors';
+          else if (computerMove === 'Scissors') {
+            result = 'Tie';
+            draw++;
           }
+        }
+        else if (playerMove === 'paper') {
+          if (computerMove === 'Rock') {
+            result = 'Win';
+            win++;
+          }
+          else if (computerMove === 'Paper') {
+            result = 'Tie';
+            draw++;
+          }
+          else if (computerMove === 'Scissors') {
+            result = 'Lose';
+            losses++;
+          }
+        }
+        else if (playerMove === 'rock') {
+          if (computerMove === 'Rock') {
+            result = 'Tie';
+            draw++;
+          }
+          else if (computerMove === 'Paper') {
+            result = 'Lose';
+            losses++;
+          }
+          else if (computerMove === 'Scissors') {
+            result = 'Win';
+            win++;
+          }
+        }
+        theResult();
+      }
+
+      function theResult() {
+          document.getElementById('Mywin');
+          document.getElementById('Myloss');
+          document.getElementById('Mydraw');
+          document.getElementById('outcome');
+          document.getElementById('computerMove1');
+          computerMove1.innerHTML = `Computer Picked: ${computerMove}`;
+          outcome.innerHTML = 'Result: ' + result + ' ';
+          Mywin.innerHTML = 'win: ' + win + ' ';
+          Myloss.innerHTML = 'loss: ' + losses + ' ';
+          Mydraw.innerHTML = 'draw: ' + draw + ' ';
+      }
+
+      function resetResult() {
+          document.getElementById('Mywin');
+          document.getElementById('Myloss');
+          document.getElementById('Mydraw');
+          document.getElementById('outcome');
+          outcome.innerHTML = 'Result: ' + result + ' ';
+          Mywin.innerHTML = 'win: ' + win + ' ';
+          Myloss.innerHTML = 'loss: ' + losses + ' ';
+          Mydraw.innerHTML = 'draw: ' + draw + ' ';
       }
     </script>
 
